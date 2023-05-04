@@ -55,3 +55,25 @@ def get_all_tasks(chat_id):
     tasks = db.get_tasks(chat_id=chat_id)
 
     return tasks
+
+
+@app.route('/mark-task/<chat_id>/<task_id>', methods=['POST'])
+def mark(chat_id, task_id):
+    '''mark task as done or undone'''
+    print(chat_id, task_id)
+    task = db.mark_task(chat_id=chat_id, task_id=task_id)
+
+    if task:
+        return dict(task)
+    return {'status': 'does not exist'}
+
+
+@app.route('/delete-task/<chat_id>/<task_id>', methods=['POST'])
+def delete_task(chat_id, task_id):
+    '''delete task'''
+    task = db.delete_task(chat_id=chat_id, task_id=task_id)
+
+    if task:
+        return {'status': 200}
+
+    return {'status': 'error'}
