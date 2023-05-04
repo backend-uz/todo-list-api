@@ -19,4 +19,13 @@ class DB:
         user_doc = Document(value=user_data, doc_id=chat_id)
         self.users.insert(user_doc)
         return True
+    
 
+    def create_task(self, chat_id: str, name: str) -> int:
+        '''create a new task'''
+        task_data = {
+            'chat_id': chat_id,
+            'name': name,
+            'done': False
+        }
+        return self.tasks.insert(task_data)

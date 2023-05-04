@@ -10,5 +10,12 @@
             "first_name": "first 2",
             "last_name": ""
         }
+    },
+    "tasks": {
+        "1": {
+            "chat_id": "4354123",
+            "name": "task 1",
+            "done": false
+        }
     }
 }
