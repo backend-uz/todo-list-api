@@ -46,3 +46,12 @@ def add_task(chat_id):
     
     task_doc_id = db.create_task(chat_id=chat_id, name=name)
     return {'task_doc_id': task_doc_id}
+
+
+@app.route('/get-tasks/<chat_id>')
+def get_all_tasks(chat_id):
+    '''get all tasks'''
+    # get tasks from database
+    tasks = db.get_tasks(chat_id=chat_id)
+
+    return tasks

@@ -29,3 +29,14 @@ class DB:
             'done': False
         }
         return self.tasks.insert(task_data)
+
+
+    def get_tasks(self, chat_id: str) -> list[dict]:
+        '''get all tasks by chat_id'''
+        # create query obj
+        q = Query()
+
+        # get all tasks from database
+        tasks = self.tasks.search(q.chat_id == chat_id)
+
+        return tasks
