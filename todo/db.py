@@ -4,7 +4,7 @@ from tinydb.table import Document
 
 class DB:
     def __init__(self) -> None:
-        db = TinyDB('db.json', indent=4)
+        db = TinyDB('cajiv/db.json', indent=4)
         self.users = db.table('users')
         self.tasks = db.table('tasks')
 
